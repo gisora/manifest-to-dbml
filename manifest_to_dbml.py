@@ -47,7 +47,7 @@ def manifest_to_dbml(manifest_file: str, dbml_filename: str):
         ).iterrows():
             col_name = col[column_index].replace("#", "_").replace("$", "_")
 
-            columns += f"\t{col_name} {col[type_index]}"
+            columns += f"\t{col_name} {(col[type_index]).replace(' ', '_')}"
 
             column_comment = str(col["comment"]).replace("'", '"')
             column_note = f"note: '{column_comment}'"
